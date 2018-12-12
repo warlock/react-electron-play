@@ -12,7 +12,9 @@
     "dev": "concurrently -k --success first \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -22,6 +24,13 @@
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
     "electron": "^3.0.11",
+    "electron-builder": "^20.38.3",
     "wait-on": "^3.2.0"
+  },
+  "build": {
+    "appId": "gl.js.myreactapp",
+    "mac": {
+      "category": "your.app.category.type"
+    }
   }
 }
