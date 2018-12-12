@@ -8,9 +8,8 @@
     "react-scripts": "2.1.1"
   },
   "scripts": {
-    "electron": "electron electron.js",
-    "start": "concurrently \"cross-env BROWSER=none npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
-    "dev": "react-scripts start",
+    "start": "concurrently -k --success first \"serve -s build -l 3000\" \"wait-on http://localhost:3000 && electron .\"",
+    "dev": "concurrently -k --success first \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
